@@ -11,7 +11,9 @@ public interface MoveableShape {
   
   void draw(Graphics2D g2);
   void translate( Dimension dim);
+  //Add them, but not use
   public int getWidth();
   public int getHeight();
+  
   
 } //interface

@@ -69,7 +69,7 @@ public class AnimationTester {
             @Override
             public void actionPerformed(ActionEvent ae) {
             	System.out.println("before translate");
-            	myMoveableShape.translate( getFrameSize(frame));
+            	myMoveableShape.translate(getFrameSize(frame));
             	System.out.println("after translate");
             	myShape.repaint();
             	System.out.println("after repaint");
