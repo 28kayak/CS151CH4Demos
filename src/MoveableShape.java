@@ -1,5 +1,6 @@
 //package cs151.chap4;
 
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -9,6 +10,8 @@ import java.awt.Graphics2D;
 public interface MoveableShape {
   
   void draw(Graphics2D g2);
-  void translate(int dx, int dy);
+  void translate( Dimension dim);
+  public int getWidth();
+  public int getHeight();
   
 } //interface

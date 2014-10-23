@@ -1,6 +1,7 @@
 //package cs151.chap4;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
@@ -16,6 +17,8 @@ public class MyMoveableShape implements MoveableShape {
   private int x;
   private int y;
   private final int width;
+  private int dy = 1;
+  private int dx = 0; 
 
   
   public MyMoveableShape(int x, int y, int width) {
@@ -50,9 +53,34 @@ public class MyMoveableShape implements MoveableShape {
    * @param dy - the movement amount of y
    */
   @Override
-  public void translate(int dx, int dy) {
-    x += dx;
-    y += dy;
+  public void translate( Dimension dim) 
+  {
+	  
+	 double frameHeight = dim.getHeight();
+	 double frameWidth = dim.getWidth();
+	if(x+dx < 0 || x+dx > frameWidth)
+	{
+		dx *= -1;
+	}
+	if(y+dy < 0 || y+dy+100 > frameHeight)
+	{
+		 dy *= -1;
+		 //y = y+dy;
+	}
+	x += dx;
+	y += dy;
+	System.out.println("x = " + x + " y = "+ y );
   } //method
+  @Override 
+  public int getHeight()
+  {
+	  return y;
+  }
+  @Override
+  public int getWidth()
+  {
+	  return x;
+  }
+  
   
 } //method

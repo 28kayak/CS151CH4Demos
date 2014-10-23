@@ -1,8 +1,10 @@
 //package cs151.chap4;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
@@ -37,15 +39,25 @@ public class AnimationTester {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
     frame.setVisible(true);
-    
+    Dimension dim = frame.getSize();
+    double height = dim.getHeight();
+    double width = dim.getWidth();
+    System.out.println("height = " + height + " width = " + width);
   } //method
+  private Dimension getFrameSize(JFrame f)
+  {
+	  Dimension dim = f.getSize();
+	  return dim;
+  }
   
   
 
   private void moveMyShape() {
     
+	  System.out.println("in move my shape");
     Timer t = new Timer(DELAY, getActionListener());
     t.start();
+    System.out.println("After start");
     
   } //method
   
@@ -56,9 +68,11 @@ public class AnimationTester {
           ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-              myMoveableShape.translate(0, 1);
-              myShape.repaint();
-              
+            	System.out.println("before translate");
+            	myMoveableShape.translate( getFrameSize(frame));
+            	System.out.println("after translate");
+            	myShape.repaint();
+            	System.out.println("after repaint");
             }
           };
     
@@ -68,7 +82,9 @@ public class AnimationTester {
     
     AnimationTester aTester = new AnimationTester();
     aTester.initialSetUp();
+    System.out.println("before moveMyShape");
     aTester.moveMyShape();
+    System.out.println("after moveMyShape");
     
     
   } //main
